@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>next5-3수금토</title>
+	<meta charset="utf-8">
+	<script> /*한자서체*/
+	  (function(d) {
+	    var config = {
+	      kitId: 'hpr0iuh',
+	      scriptTimeout: 3000,
+	      async: true
+	    },
+	    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+	  })(document);
+	</script>
+
+	<style type="text/css">
+		 @font-face { font-family: 'NotoSerifKR'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NotoSerifKR.woff') format('woff'); font-weight: normal; font-style: normal; }
+		/*200~700,900*/
+
+
+
+		body { width: 100%; height: 1080px; margin: 0; padding: 0; background: #52b214; }
+		h1, p, span { font-family: 'NotoSerifKR'; }
+		span { font-size: 50px; font-weight: 900; margin: auto; text-align: center; line-height: 130px; }
+		p { width: 270px; font-size: 40px; font-weight: 400; margin: auto;  text-align: center; line-height: 270px; color: white; }
+		h2 { font-family: source-han-serif-sc,serif; font-weight: 900; font-style: normal; font-size: 70px; margin: auto; text-align: center; line-height: 130px; color: white; /*box-sizing:border-box; border:5px solid #00720b; color: #52b214;*/
+			animation: here 2s infinite alternate;}
+		h2:hover { opacity: 1; cursor: default;
+				animation: here paused forwards ; }
+
+		#tohome { width: 50px; height: 50px; position: fixed; right: 65px; top: 70px; background: url('homebut-01.png'); background-size: cover; z-index: 100; cursor: pointer; }
+
+		#leftt { background: white; position: fixed; width: 150px; height: 1080px; margin: 0; z-index: 2;}
+		#leftnav { background: url('navv-02.png'); background-size: cover; margin-left: 45px; margin-top: 330px; width: 80px; height: 430px; }
+
+				
+		#textt { width: 1770px; height: 1080px; margin-left: 150px; }
+			.centerText { width: 420px; height: 460px; position: relative; float: left; margin-left: 245px; margin-right: 245px; margin-top: 260px; z-index: 2; }
+
+			#buttonn { width: 300px; height: 100px; margin: auto; margin-top: 100px; background: url('gamestart.png'); background-size: cover; z-index: 3; cursor: pointer; }
+
+			#textt1{ width: 270px; height: 270px; border-radius: 50%; border: white solid 5px; position: relative; float: left; margin-left: 150px; margin-top: 80px; margin-bottom: 360px; opacity: 0; }
+			#textt2{ width: 270px; height: 270px; border-radius: 50%; border: white solid 5px; position: relative; float: left; margin-top: 80px; margin-bottom: 360px; opacity: 0; }
+			#textt3{ width: 270px; height: 270px; border-radius: 50%; border: white solid 5px; position: relative; float: left; margin-left: 150px; margin-bottom: 80px; opacity: 0; }
+			#textt4{ width: 270px; height: 270px; border-radius: 50%; border: white solid 5px; position: relative; float: left; margin-left: 910px; margin-bottom: 80px; opacity: 0; }
+
+			
+		@keyframes here {
+		    0% {opacity: 1;}
+		    50% {opacity: 0;}
+		    100% {opacity: 1;}
+		}
+
+
+	</style>
+</head>
+<body>
+	<section id="tohome"></section>
+
+	<section id="leftt">
+		<div id="leftnav"></div>
+	</section>
+
+	<section id="textt">		
+		<div id="textt1">
+			<p>짧고 굵은 줄기</p>
+		</div>
+
+			<div class="centerText">
+				<span>당신의 반려 식물은</span><h2 onmouseover="Eldyd(this)" onmouseout="disappear(this)">水金土</h2><span>이름이 어울립니다.</span>	
+				<div id="buttonn" onclick="nextpage()"></div>		
+			</div>
+
+		<div id="textt2">
+			<p>빠른 성장</p>
+		</div>
+		<div id="textt3">
+			<p>키우기 쉬움</p>
+		</div>
+		<div id="textt4">
+			<p>튼튼함</p>
+		</div>
+	</section>
+
+	
+
+
+	<script type="text/javascript">
+
+		tohome.onclick = function() {
+			location.href = "../../index.html";
+		}
+
+		function Eldyd(x) {
+			//x.style.color = "black";
+			textt1.style.opacity = "1";
+			textt2.style.opacity = "1";
+			textt3.style.opacity = "1";
+			textt4.style.opacity = "1";
+		}
+
+		function disappear(x) {
+			//x.style.color = "#52b214"
+			textt1.style.opacity = "0";
+			textt2.style.opacity = "0";
+			textt3.style.opacity = "0";
+			textt4.style.opacity = "0";
+		}
+
+		buttonn.onclick = function() {
+			location.href = "minigame5/minigame5-3.html?simh=" + lastnamee;
+		}
+
+		//받는코드
+		var x = decodeURI(location.href)
+		var y = x.split("=")
+		var z = y[1].split("&")
+		console.log(z[0])
+		var lastnamee = z[0]
+		//
+
+		
+	</script>
+
+</body>
+</html>

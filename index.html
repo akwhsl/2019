@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>반려식물 작명소_홈</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+ 		@font-face { font-family: 'NotoSerifKR'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NotoSerifKR.woff') format('woff'); font-weight: normal; font-style: normal; }
+		/*200~700,900*/
+
+		body { height: 950px; margin: 0; padding-top: 130px; }
+		h1, h2, p, label, input { font-family: 'NotoSerifKR'; font-weight: 900; margin: 0; }
+
+		h1 { color: #00380e; width: 100%; margin: 0; font-size: 90px;}
+		h2 { color: #00720b; width: 100%; margin: 0; margin-top: 50px; font-size: 24px; line-height: 40px; }
+		label { color: #00380e; font-size: 24px; line-height: 24px; }
+		hr { margin: 0; height: 5px; background: #00380e;}
+		p { font-size: 18px; color: #00380e; margin-top: 50px; text-align: center; }
+
+		#boxx { margin-left: 150px; margin-right: 150px; }
+
+		#leftt { width: 50%; height: 810px; margin: 0; position: relative; float: left; }
+
+			#namee { width: 350px; height: 300px; position: relative; float: left; margin-top: 130px; }
+			#myName1 { width: 344px; height: 50px; padding: 0; margin-top: 30px; margin-bottom: 40px; font-size: 30px; color: black; border: 3px solid #00380e; }
+			#myName2 { width: 344px; height: 50px; padding: 0; margin-top: 30px; font-size: 30px; color: black; border: 3px solid #00380e; }
+			#buttonn { width: 165px; height: 165px; margin-top: 230px; margin-left: 100px; position: relative; float: left; background: url('start.png'); background-size: cover; border: 0px; opacity: 0; display: none;  }
+
+		#rightt { width: 50%; height: 810px; margin: 0; margin-top: -50px; position: relative; float: left; }
+			#randomimagee { width: 100%; height: 100% }
+
+		#foott { width: 100%; height: 120px; position: relative; float: left; }
+
+
+	</style>
+</head>
+<body>
+	<section id="boxx">
+		<section id="leftt">
+			<h1>반려식물 작명소</h1>
+			<h2>반려식물 작명소는 자음에 담긴 음양오행의 원리에 따라<br>당신의 반려식물과 어울리는 이름을 지어드립니다.<br>사랑과 정성을 가득 담은 이름을 지어보세요.</h2>
+			
+			<form name="myForm">
+				<div id="namee">
+					<label>당신의 성씨를 입력하세요.</label>
+					<input type="text" autofocus name="lastnamee" autocomplete="off" id="myName1" onkeyup="checkName()">
+					<label>당신의 이름을 입력하세요.</label>
+					<input type="text" name="firstnamee" autocomplete="off" id="myName2" onkeyup="checkName()">
+				</div>
+				<input type="submit" value="" id="buttonn" onclick="myFunction()">
+			</form>
+			
+		</section>
+
+		<section id="rightt">
+			<div id="randomimagee">
+				<img src="randomImgg/1.png" name="randomimage" width="850" height="850" border="0" >
+			</div>
+		</section>
+	</section>
+
+
+	<script type="text/javascript">
+		var x = 0;
+		var y = 0;
+		var toggle = "0";
+
+		function checkKorean(wrd) {
+	    	let uni = wrd.charCodeAt(0);
+	    	let result = 
+	       	(uni >= 12593 && uni <= 12643) ? true : (uni >= 44032 && uni <= 55203) ? true : false;
+
+	    	return result;
+		}
+
+		function getConstantVowel(kor) {
+		    const f = ['ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'];
+			const s = ['ㅏ', 'ㅐ', 'ㅑ', 'ㅒ', 'ㅓ', 'ㅔ', 'ㅕ', 'ㅖ', 'ㅗ', 'ㅘ', 'ㅙ', 'ㅚ', 'ㅛ', 'ㅜ', 'ㅝ', 'ㅞ', 'ㅟ', 'ㅠ', 'ㅡ', 'ㅢ', 'ㅣ'];
+		    const t = ['', 'ㄱ', 'ㄲ', 'ㄳ', 'ㄴ', 'ㄵ', 'ㄶ', 'ㄷ', 'ㄹ', 'ㄺ', 'ㄻ', 'ㄼ', 'ㄽ', 'ㄾ', 'ㄿ', 'ㅀ', 'ㅁ', 'ㅂ', 'ㅄ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'];
+
+			const ga = 44032;
+			let uni = kor.charCodeAt(0);
+
+			if (!checkKorean(kor)) return false;
+
+			uni = uni - ga;
+
+			let fn = parseInt(uni / 588);
+			let sn = parseInt((uni - (fn * 588)) / 28);
+			let tn = parseInt(uni % 28);
+
+			return {
+		        f: f[fn],
+		        s: s[sn],
+		        t: t[tn]
+		    };
+		};
+
+		myName1.onkeydown = function(e){
+			//console.log(this.value);
+			var q = getConstantVowel(this.value);
+			console.log(q.f, q.s, q.t);
+			//주는코드
+			if (q.f=='ㄱ' || q.f=='ㅋ' || q.f=='ㄲ') {
+				buttonn.onclick = function() {
+					location.href = "1/questionpage1.html?simh=" + q.f + "+" + q.s + "+" + q.t;
+				}
+				document.myForm.action = "1/questionpage1.html";
+			}else if (q.f=='ㄴ' || q.f=='ㄷ' || q.f=='ㄹ' || q.f=='ㅌ' || q.f=='ㄸ') {
+				buttonn.onclick = function() {
+					location.href = "2/questionpage2.html";
+				}
+				document.myForm.action = "2/questionpage2.html";
+			}else if (q.f=='ㅁ' || q.f=='ㅂ' || q.f=='ㅍ' || q.f=='ㅃ') {
+				buttonn.onclick = function() {
+					location.href = "3/questionpage3.html";
+				}
+				document.myForm.action = "3/questionpage3.html";
+			}else if (q.f=='ㅅ' || q.f=='ㅆ' || q.f=='ㅈ' || q.f=='ㅉ' || q.f=='ㅊ') {
+				buttonn.onclick = function() {
+					location.href = "4/questionpage4.html";
+				}
+				document.myForm.action = "4/questionpage4.html";
+			}else if (q.f=='ㅇ' || q.f=='ㅎ') {
+				buttonn.onclick = function() {
+					location.href = "5/questionpage5.html?simh=" + q.f + "+" + q.s + "+" + q.t;
+				}
+				document.myForm.action = "5/questionpage5.html";
+			}		
+		}
+
+		myName1.onchange = function(e) {
+			x = e.target.value;
+			checkName();
+		}
+
+		myName2.onchange = function(e) {
+			y = e.target.value;
+			checkName();
+		}
+
+				
+			function checkName(){
+				if((myName1.value.length > 0) && (myName2.value.length > 0)){
+					buttonn.style.display = "block";
+					buttonn.style.opacity = "1";
+					buttonn.style.cursor = "pointer";
+				}
+			}
+
+
+	
+	window.setInterval(imgchange,4000);
+
+	function imgchange(){		
+		var maximgno = 24; // 총 25개 파일
+		var imgno;
+
+		do{
+		imgno = Math.floor(Math.random() * 25) .toString();
+		}
+
+		while (0 > imgno > maximgno);
+
+		var imgfile="randomImgg/" + imgno +".png";
+		document.randomimage.src=imgfile;
+	}
+
+	</script>
+
+	<footer id="foott">
+		<hr>
+		<p>본 사이트는 2019년도 한경대학교 디자인학과 졸업작품으로 제작되었습니다. Copyright 2019. HKNUDESIGN Graduation Exhibition</p>
+	</footer>
+
+</body>
+
+</html>
